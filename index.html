@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Billing App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>🧾 Simple Billing Application</h2>
+
+    <div class="section">
+      <h3>Customer Details</h3>
+      <input type="text" id="customerName" placeholder="Customer Name">
+      <input type="text" id="customerPhone" placeholder="Phone Number">
+    </div>
+
+    <div class="section">
+      <h3>Select Product</h3>
+      <select id="productSelect">
+        <option value="">-- Select Product --</option>
+        <option value="Tea" data-price="12">Tea - ₹12</option>
+        <option value="Coffee" data-price="12">Coffee - ₹12</option>
+        <option value="Bru Coffee" data-price="24">Bru Coffee - ₹24</option>
+        <option value="Egg Buggy" data-price="10">Egg Buggy - ₹10</option>
+        <option value="Chilly Buggy" data-price="10">Chilly Buggy - ₹10</option>
+      </select>
+      <input type="number" id="quantity" placeholder="Qty" min="1" value="1">
+      <button onclick="addItem()">Add</button>
+    </div>
+
+    <div class="section">
+      <h3>Bill Items</h3>
+      <table id="billTable">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Rate</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div class="total">
+        <strong>Grand Total: ₹<span id="grandTotal">0</span></strong>
+      </div>
+    </div>
+
+    <div class="section center">
+      <button onclick="saveBill()">💾 Save Bill (PDF)</button>
+      <button onclick="viewHistory()">📜 View Saved Bills</button>
+    </div>
+
+    <div class="section" id="historySection" style="display:none;">
+      <h3>Saved Bills</h3>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
